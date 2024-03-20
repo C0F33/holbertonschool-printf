@@ -20,8 +20,12 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			count += funct_print(ap, *format);
-			format++;
 		}
+		else
+		{
+            _putchar(*format);
+        }
+		format++;
 	}
 	va_end(ap);
 	return (count);

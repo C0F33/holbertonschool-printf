@@ -36,44 +36,44 @@ int print_int(int i)
  * @ap: Arguments
  * Return: Number of chars to be printed
 */
-int funct_print(va_list ap, int *format)
+int funct_print(va_list ap, char format)
 {
 	int count = 0;
 
-	if (*format == 's')
+	if (format == 's')
 	{
 		char *s = va_arg(ap, char *);
 
 		while (*s != '\0')
 		{
-			putchar(*s);
+			_putchar(*s);
 			s++;
 			count++;
 		}
 	}
-	else if (*format == 'c')
+	else if (format == 'c')
 	{
 		char c = va_arg(ap, int);
 
-		putchar(c);
+		_putchar(c);
 		count++;
 	}
-	else if (*format == '%')
+	else if (format == '%')
 	{
-		putchar('%');
+		_putchar('%');
 		count++;
 	}
-	else if (*format == 'i')
+	else if (format == 'i')
 	{
 		count += print_int(va_arg(ap, int));
 	}
-	else if (*format == 'd')
+	else if (format == 'd')
 	{
 		count += print_int(va_arg(ap, int));
 	}
 	else
 	{
-		putchar(*format);
+		_putchar(format);
 		count++;
 	}
 	return (count);

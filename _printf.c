@@ -17,13 +17,19 @@ while (*format != '\0')
 if (*format == '%')
 {
 format++;
-if (*format == 'c' || *format == 's')
+if (*format == 's')
 {
 char *s = va_arg(args, char *);
 while (*s != '\0')
 {
 putchar(*s);
 s++;
+written_chars++;
+}
+if (*format == 'c')
+{
+char c = va_arg(args, int);
+putchar(c);
 written_chars++;
 }
 }

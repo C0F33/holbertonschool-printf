@@ -22,8 +22,7 @@ int _printf(const char *format, ...)
 			count += funct_print(ap, *format);
 			format++;
 		}
-
-		va_end(ap);
-		return (count);
 	}
+	va_end(ap);
+	return (count);
 }

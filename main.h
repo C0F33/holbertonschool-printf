@@ -5,7 +5,9 @@
 #include <string.h>
 #include <stdarg.h>
 
+int _putchar(char c);
+int print_int(int i);
+int funct_print(va_list ap, char format);
 int _printf(const char *format, ...);
-int printf(const char *format, ...);
 
-#endif /** MAIN_H*/
+#endif

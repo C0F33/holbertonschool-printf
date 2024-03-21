@@ -32,18 +32,15 @@ int funct_print(va_list ap, char format)
 		_putchar('%');
 		count++;
 	}
-	else if (format == 'i')
-	{
-		count += print_int(va_arg(ap, int));
-	}
-	else if (format == 'd')
+	else if (format == 'i' || format == 'd')
 	{
 		count += print_int(va_arg(ap, int));
 	}
 	else
 	{
+		_putchar('%');
 		_putchar(format);
-		count++;
+		count += 2;
 	}
 	return (count);
 }

@@ -11,8 +11,10 @@ int _printf(const char *format, ...)
 {
     va_list ap;
     int count = 0;
+	va_list ap;
+	int count = 0;
 
-    va_start(ap, format);
+	va_start(ap, format);
 
     while (*format != '\0')
     {
@@ -31,4 +33,19 @@ int _printf(const char *format, ...)
 
     va_end(ap);
     return (count);
+	while (*format != '\0')
+	{
+		if (*format == '%')
+		{
+			format++;
+			count += funct_print(ap, *format);
+		}
+		else
+		{
+            _putchar(*format);
+        }
+		format++;
+	}
+	va_end(ap);
+	return (count);
 }

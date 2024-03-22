@@ -9,6 +9,6 @@ int _putchar(char c);
 int print_int(int i);
 int funct_print(va_list ap, char format);
 int _printf(const char *format, ...);
-
 int write(int i, char *buf, int len);
+
 #endif

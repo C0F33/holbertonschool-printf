@@ -112,22 +112,6 @@ int other_funcs(va_list ap, char format)
 	{
 		count += print_int(va_arg(ap, int));
 	}
-	else if (format == 'x')
-	{
-		count += convert_int(va_arg(ap, int), 16, 0);
-	}
-	else if (format == 'X')
-	{
-		count += convert_int(va_arg(ap, int), 16, 1);
-	}
-	else if (format == 'u')
-	{
-		count += convert_int(va_arg(ap, int), 10, 0);
-	}
-	else if (format == 'o')
-	{
-		count += convert_int(va_arg(ap, int), 8, 0);
-	}
 	else
 	{
 		_putchar('%');

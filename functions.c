@@ -44,3 +44,48 @@ int funct_print(va_list ap, char format)
 	}
 	return (count);
 }
+
+
+
+/**
+ * print_int - Prints the integer
+ * @i: Number to be printed
+ * Return: Count of all numbers printed
+ */
+
+int print_int(int i)
+{
+	int count = 1;
+	unsigned int num = 0;
+
+	if (i < 0)
+	{
+		_putchar('-');
+		count++;
+		num = i * -1;
+	}
+	else
+	{
+		num = i;
+	}
+	if (num / 10)
+	{
+		count += print_int(num / 10);
+	}
+	_putchar((num % 10) + 48);
+
+	return (count);
+}
+
+
+
+/**
+ * _putchar - Function that writes the character c to stdout
+ * @c: The character to print
+ * Return: On success 1,
+ * On error -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}

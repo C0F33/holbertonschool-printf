@@ -87,6 +87,10 @@
 
 ![example](https://miro.medium.com/max/640/1*hJ2wWk5QyOmK7RHNmfLGMw.png)
 
+## Flow chart example
+
+![flowchart](https://github.com/C0F33/holbertonschool-printf/Flowchars.png)
+
 ## References
 
 - [Man page](https://man7.org/linux/man-pages/man3/printf.3.html)

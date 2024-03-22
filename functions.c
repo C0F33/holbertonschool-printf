@@ -4,7 +4,7 @@
  * @format: The string to be printed
  * @ap: Arguments
  * Return: Number of chars to be printed
-*/
+ */
 int funct_print(va_list ap, char format)
 {
 	int count = 0;
@@ -13,12 +13,7 @@ int funct_print(va_list ap, char format)
 	{
 		char *s = va_arg(ap, char *);
 
-		while (*s != '\0')
-		{
-			_putchar(*s);
-			s++;
-			count++;
-		}
+		count += prints(s);
 	}
 	else if (format == 'c')
 	{
@@ -32,20 +27,32 @@ int funct_print(va_list ap, char format)
 		_putchar('%');
 		count++;
 	}
-	else if (format == 'i' || format == 'd')
-	{
-		count += print_int(va_arg(ap, int));
-	}
 	else
 	{
-		_putchar('%');
-		_putchar(format);
-		count += 2;
+		count += other_funcs(ap, format);
 	}
 	return (count);
 }
 
+/**
+ * prints- Function that prints the opts
+ * @s: The string to be printed
+ * Return: Number of chars printed
+ */
+int prints(char *s)
+{
+	int count;
 
+	count = 0;
+
+	while (*s != '\0')
+	{
+		_putchar(*s);
+		s++;
+		count++;
+	}
+	return (count);
+}
 
 /**
  * print_int - Prints the integer
@@ -77,8 +84,6 @@ int print_int(int i)
 	return (count);
 }
 
-
-
 /**
  * _putchar - Function that writes the character c to stdout
  * @c: The character to print
@@ -88,4 +93,47 @@ int print_int(int i)
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
+}
+
+/**
+ * other_funcs - function contains other specifiers
+ * @format: The string to be printed
+ * @ap: Arguments
+ * Return: On success 1,
+ * On error -1 is returned, and errno is set appropriately.
+ */
+int other_funcs(va_list ap, char format)
+{
+	int count;
+
+	count = 0;
+
+	if (format == 'i' || format == 'd')
+	{
+		count += print_int(va_arg(ap, int));
+	}
+	else if (format == 'x')
+	{
+		count += convert_int(va_arg(ap, int), 16, 0);
+	}
+	else if (format == 'X')
+	{
+		count += convert_int(va_arg(ap, int), 16, 1);
+	}
+	else if (format == 'u')
+	{
+		count += convert_int(va_arg(ap, int), 10, 0);
+	}
+	else if (format == 'o')
+	{
+		count += convert_int(va_arg(ap, int), 8, 0);
+	}
+	else
+	{
+		_putchar('%');
+		_putchar(format);
+		count += 2;
+	}
+
+	return (count);
 }

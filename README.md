@@ -89,7 +89,7 @@
 
 ## Flow chart example
 
-![flowchart](https://github.com/C0F33/holbertonschool-printf/Flowchars.png)
+![flowchart](https://github.com/C0F33/holbertonschool-printf/Flowcharts.png)
 
 ## References
 
